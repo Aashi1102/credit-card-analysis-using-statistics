@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Atiliqo Banner" />
+  <img src="assets/banner.png" width="100%" alt="Atliiqo Banner"/>
 </p>
 
 <p align="center">
@@ -11,9 +11,14 @@
   <img src="https://img.shields.io/badge/Status-Completed-brightgreen" />
 </p>
 
-# 💳 Atiliqo Bank Credit Card Analysis
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Aashi1102/credit-card-analysis-using-statistics?style=social" />
+  <img src="https://img.shields.io/github/forks/Aashi1102/credit-card-analysis-using-statistics?style=social" />
+</p>
 
-**“Maths sirf subject nahi hai… yeh real-world decisions ka base hai.”**
+# 🏦 Atliiqo Bank Credit Card Analysis
+
+Data-driven analysis of credit card adoption using statistics, A/B testing, and customer segmentation.
 
 ## 📌 Overview
 This project analyzes whether a **new credit card by Atiliqo Bank** can succeed in a competitive market (Axis, HDFC, ICICI).
