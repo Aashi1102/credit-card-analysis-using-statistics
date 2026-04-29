@@ -74,6 +74,8 @@ Atiliqo-Bank-Project
 
 ├── phase_2_atliqo_bank.ipynb
 
+├── Other/
+
 ├── Central_Limit_therom.ipynb
 
 ├── z_test_hypothesis_testing_assignment.ipynb
