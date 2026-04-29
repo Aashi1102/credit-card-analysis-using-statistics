@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Atiliqo Banner" />
+</p>
+
 # 💳 Atiliqo Bank Credit Card Analysis
 
 **“Maths sirf subject nahi hai… yeh real-world decisions ka base hai.”**
