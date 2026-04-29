@@ -66,9 +66,8 @@ However, due to strong competition, the bank needs to answer:
 
 ## 📂 Project Structure
 
-Atiliqo-Bank-Project/
+Atiliqo-Bank-Project
 
-│
 ├── dataset/
 
 ├── phase_1_atliqo_bank.ipynb
