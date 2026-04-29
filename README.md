@@ -67,16 +67,23 @@ However, due to strong competition, the bank needs to answer:
 ## 📂 Project Structure
 
 Atiliqo-Bank-Project/
+
 │
 ├── dataset/
+
 ├── phase_1_atliqo_bank.ipynb
+
 ├── phase_2_atliqo_bank.ipynb
-│
+
 ├── Central_Limit_therom.ipynb
+
 ├── z_test_hypothesis_testing_assignment.ipynb
+
 ├── t test.ipynb
+
 ├── abtesting.ipynb
-│
+
+
 └── README.md
 
 ---
