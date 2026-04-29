@@ -2,6 +2,15 @@
   <img src="assets/banner.png" alt="Atiliqo Banner" />
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Pandas-Data%20Analysis-yellow?logo=pandas" />
+  <img src="https://img.shields.io/badge/NumPy-Numerical%20Computing-blue?logo=numpy" />
+  <img src="https://img.shields.io/badge/Matplotlib-Visualization-orange" />
+  <img src="https://img.shields.io/badge/Seaborn-Statistical%20Plots-lightblue" />
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen" />
+</p>
+
 # 💳 Atiliqo Bank Credit Card Analysis
 
 **“Maths sirf subject nahi hai… yeh real-world decisions ka base hai.”**
