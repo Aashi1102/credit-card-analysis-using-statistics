@@ -16,128 +16,195 @@
   <img src="https://img.shields.io/github/forks/Aashi1102/credit-card-analysis-using-statistics?style=social" />
 </p>
 
-# 🏦 Atliiqo Bank Credit Card Analysis
+# 🏦 AtliiQo Bank Credit Card Analysis
 
-A data-driven customer and transaction analysis project that uses **Exploratory Data Analysis, customer segmentation, A/B testing, and hypothesis testing** to identify a potential target segment for Atliiqo Bank's new credit card and evaluate whether a campaign increased customer transaction value.
+> **Data-driven customer segmentation and A/B testing to identify a potential target segment and evaluate campaign impact on transaction value.**
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-yellow?logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-blue?logo=numpy)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-orange)
+![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-lightblue)
+![SciPy](https://img.shields.io/badge/SciPy-Statistics-blue)
+![Statsmodels](https://img.shields.io/badge/Statsmodels-Hypothesis%20Testing-green)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
 
 ---
 
 ## 📌 Project Overview
 
-Atliiqo Bank wants to launch a new credit card in a competitive Indian market.
+AtliiQo Bank is planning to introduce a new credit card in a competitive Indian market.
 
-Before launching the card broadly, the bank needs to answer two important questions:
+Before promoting the card to a large customer base, the bank needs to understand:
 
-1. **Which customer segment should be targeted?**
-2. **Does the campaign actually increase customer transaction value?**
+* Which customer segment could be a good target?
+* What are the spending and credit characteristics of different customer groups?
+* Can a targeted campaign increase customer transaction value?
 
-To answer these questions, the project was divided into two phases:
+To answer these questions, the project was divided into **two phases**:
 
-```text
-Customer + Credit + Transaction Data
-                ↓
-        Data Cleaning & EDA
-                ↓
-         Customer Segmentation
-                ↓
-      Identify Target Segment
-                ↓
-           A/B Testing
-                ↓
-      Control Group vs Test Group
-                ↓
-        Hypothesis Testing
-                ↓
-       Statistical Decision
-                ↓
-        Business Recommendation
-```
+### Phase 1 — Customer & Target Market Analysis
 
----
+Customer, credit-profile, and transaction data were cleaned and analyzed to understand customer behavior and identify a potential target segment.
 
-# 🎯 Problem Statement
+### Phase 2 — A/B Testing & Statistical Analysis
 
-Launching a new credit card without understanding customer behavior can lead to poor targeting and ineffective marketing.
+A campaign was evaluated by comparing the average transaction value of a **test group** with a **control group** using hypothesis testing.
 
-The objective of this project was to use customer, credit, and transaction data to:
-
-* understand customer characteristics and spending behavior
-* identify a potentially untapped customer segment
-* design an A/B testing approach for the selected segment
-* determine whether the campaign produced a statistically significant increase in average transaction value
-
----
-
-# 🧠 Project Approach
-
-The project consists of two major phases.
-
-## Phase 1 — Target Market Analysis
-
-The first phase focused on understanding the customer base and identifying a suitable target segment.
-
-### Main steps
+### Overall Workflow
 
 ```text
-Data Loading
-     ↓
-Data Inspection
-     ↓
-Data Cleaning
-     ↓
-Missing Value Treatment
-     ↓
-Outlier Detection & Treatment
-     ↓
+Customer Data
+Credit Profile Data
+Transaction Data
+        │
+        ▼
+Data Cleaning & Preprocessing
+        │
+        ▼
 Exploratory Data Analysis
-     ↓
+        │
+        ▼
 Customer Segmentation
-     ↓
-Target Segment Identification
+        │
+        ▼
+Identify Potential Target Segment
+        │
+        ▼
+Campaign Experiment
+        │
+        ▼
+Control Group vs Test Group
+        │
+        ▼
+Sample Size & Power Analysis
+        │
+        ▼
+Hypothesis Testing
+        │
+        ▼
+Business Interpretation
 ```
 
 ---
 
-# 📊 Data Used
+# 🎯 Business Problem
 
-The analysis worked with three main datasets:
+Launching a credit card without understanding customer behavior can result in poor targeting and ineffective marketing.
 
-| Dataset           |         Records |
-| ----------------- | --------------: |
-| Customer Data     |           1,000 |
-| Credit Score Data | 1,004 initially |
-| Transaction Data  |         500,000 |
+The goal of this project was to use customer and transaction data to:
 
-The credit-score data contained duplicate customer records, which were checked using `cust_id` and reduced to the required unique customer records.
+1. Understand the characteristics of the existing customer base.
+2. Analyze income, credit profile, payment behavior, and purchasing patterns.
+3. Identify a potentially under-served customer segment.
+4. Design an experiment for the selected segment.
+5. Determine whether the campaign resulted in a statistically significant increase in average transaction value.
 
----
-
-# 🧹 Data Cleaning & Preprocessing
-
-Real-world datasets contained missing values, duplicate records, unrealistic values, and unusual transaction values.
-
-Instead of applying the same cleaning method everywhere, the treatment was based on the type of data and the business context.
-
-## Missing Income Values
-
-Missing annual income values were handled using the **occupation-wise median income**.
-
-This was preferred over simply removing the records because income can vary considerably across occupations.
+> **Note:** The project evaluates transaction-value improvement rather than directly measuring credit-card activation or adoption.
 
 ---
 
-## Age Outliers
+# 📊 Dataset
 
-The dataset contained unrealistic ages, including values as low as **1** and as high as **135**.
+The analysis uses three main datasets.
 
-Potential age outliers were identified and treated using occupation-wise median age.
+| Dataset             | Initial Records | Main Information                                           |
+| ------------------- | --------------: | ---------------------------------------------------------- |
+| Customer Data       |           1,000 | Age, gender, location, occupation, income, marital status  |
+| Credit Profile Data |           1,004 | Credit score, utilization, debt, inquiries, credit limit   |
+| Transaction Data    |         500,000 | Transaction amount, platform, category, payment type, date |
+
+### Customer Data
+
+Important fields include:
+
+```text
+cust_id
+name
+gender
+age
+location
+occupation
+annual_income
+marital_status
+```
+
+### Credit Profile Data
+
+```text
+cust_id
+credit_score
+credit_utilisation
+outstanding_debt
+credit_inquiries_last_6_months
+credit_limit
+```
+
+### Transaction Data
+
+```text
+tran_id
+cust_id
+tran_date
+tran_amount
+platform
+product_category
+payment_type
+```
+
+---
+
+# 🧹 Phase 1 — Data Cleaning & Preprocessing
+
+The raw data contained missing values, duplicate records, unrealistic values, and unusual transaction amounts.
+
+Different treatment methods were used depending on the variable and its business context.
+
+---
+
+## 1. Handling Missing Annual Income
+
+There were **50 missing annual-income values**.
+
+Instead of removing those customers, missing income was filled using the **median income of the customer's occupation**.
+
+For example:
+
+```text
+Occupation
+     ↓
+Find occupation-wise median income
+     ↓
+Use that median for missing income
+```
+
+### Why median?
+
+Income is highly skewed, so the median is less affected by very high-income values than the mean.
+
+---
+
+## 2. Handling Unrealistic Ages
+
+The raw customer data contained ages ranging from:
+
+```text
+Minimum = 1
+Maximum = 135
+```
+
+Ages below 15 and above 80 were treated as unrealistic values for this customer dataset.
+
+These values were replaced using the **occupation-wise median age**.
 
 After treatment:
 
-* Minimum age: **18**
-* Maximum age: **64**
+```text
+Minimum age = 18
+Maximum age = 64
+```
 
-Customers were then grouped into:
+Customers were then divided into three age groups:
 
 ```text
 18–25
@@ -145,105 +212,258 @@ Customers were then grouped into:
 49–65
 ```
 
----
-
-## Credit Score Data
-
-The credit-score dataset initially contained **1,004 records** for approximately **1,000 customers**.
-
-Duplicate customer IDs were identified and removed to maintain one customer-level record.
-
-Credit-score ranges were also created for analysis.
+The purpose of these groups was to make customer-segment comparison easier.
 
 ---
 
-## Outstanding Debt
+## 3. Cleaning Credit Profile Data
 
-Some records contained outstanding debt greater than the customer's credit limit.
+The credit-profile dataset initially contained:
 
-Instead of relying only on statistical outlier detection, a business rule was applied:
+```text
+1,004 records
+```
+
+while there were approximately:
+
+```text
+1,000 unique customers
+```
+
+Duplicate customer IDs were identified.
+
+The duplicate records were inspected, and the dataset was reduced to one record per customer.
+
+### Missing Credit Limit
+
+Missing credit limits were filled using the **mode of credit limit within the customer's credit-score range**.
+
+Credit-score ranges were created such as:
+
+```text
+300–449
+450–499
+500–549
+550–599
+600–649
+650–699
+700–749
+750–799
+```
+
+This provided a more relevant replacement than using one overall value.
+
+---
+
+## 4. Outstanding Debt Validation
+
+Some customers had:
 
 ```text
 Outstanding Debt > Credit Limit
-                ↓
-          Treat as invalid
-                ↓
-      Replace using Credit Limit
 ```
 
-This demonstrates the use of **domain/business logic during data cleaning**.
+This was treated as invalid according to the business rule that outstanding debt should not exceed the available credit limit.
+
+Those values were replaced with the customer's credit limit.
+
+This is an example of using **domain knowledge rather than only statistical rules** when cleaning data.
 
 ---
 
-## Transaction Data
+# 💳 Transaction Data Cleaning
 
-The transaction dataset contained approximately **500,000 records**.
+The transaction dataset contained approximately **500,000 transactions**.
 
-Zero-value transactions were investigated rather than immediately deleted.
+---
 
-There were **4,734 zero-value transactions**, with notable concentration around certain product/platform combinations.
+## 5. Missing Platform Values
 
-These values were treated using relevant group-level transaction statistics.
+The `platform` column contained missing values.
 
-Extreme transaction values were also identified and treated using product-category-level statistics.
+EDA showed that Amazon was the most frequently used platform across product categories.
+
+Therefore, missing platform values were filled using the overall mode:
+
+```text
+Amazon
+```
+
+---
+
+## 6. Zero Transaction Amounts
+
+There were:
+
+```text
+4,734 transactions
+```
+
+with a transaction amount of zero.
+
+Instead of immediately deleting them, the transactions were investigated.
+
+All of these zero-value records were associated with:
+
+```text
+Platform       → Amazon
+Category       → Electronics
+Payment Type   → Credit Card
+```
+
+There were **15,288 transactions** in this specific combination.
+
+For the valid positive transactions in this group, the median transaction amount was:
+
+```text
+₹554
+```
+
+The zero values were therefore replaced using this group-level median.
+
+---
+
+## 7. Extreme Transaction Values
+
+The transaction amount contained unusually high values, with the maximum reaching:
+
+```text
+₹69,999
+```
+
+An IQR-based approach was used to identify extreme transaction values.
+
+The upper threshold was approximately:
+
+```text
+₹1,107
+```
+
+Values at or above this threshold were treated as extreme observations for the analysis.
+
+Instead of simply deleting them, the values were replaced using the **mean transaction amount for their respective product category**, calculated after excluding the extreme observations.
+
+After treatment:
+
+```text
+Maximum transaction amount ≈ ₹999
+```
+
+The resulting transaction distribution remained right-skewed but was much less dominated by extreme values.
 
 ---
 
 # 📈 Exploratory Data Analysis
 
-The cleaned data was explored across multiple customer and transaction dimensions, including:
+After cleaning, the data was explored across several dimensions:
+
+### Customer characteristics
 
 * Age
-* Annual income
-* Credit score
-* Credit limit
+* Gender
+* Location
 * Occupation
-* Payment method
-* Product category
-* Platform
-* Transaction amount
+* Annual income
+* Marital status
 
-The goal was not simply to create visualizations, but to understand:
+### Credit characteristics
+
+* Credit score
+* Credit utilization
+* Outstanding debt
+* Credit limit
+* Credit inquiries
+
+### Transaction behavior
+
+* Transaction amount
+* Payment type
+* Product category
+* Shopping platform
+* Age group
+
+The objective was not simply to create charts, but to answer:
 
 > **Who are the customers, how do they behave, and which group could represent an opportunity for the new credit card?**
 
 ---
 
+# 🔎 Credit Profile Insights
+
+A correlation analysis was performed on numerical customer and credit variables.
+
+Some important correlations were:
+
+| Variable Pair                   | Correlation |
+| ------------------------------- | ----------: |
+| Credit Score ↔ Credit Limit     |   **0.848** |
+| Credit Limit ↔ Annual Income    |   **0.685** |
+| Outstanding Debt ↔ Credit Limit |   **0.811** |
+| Annual Income ↔ Age             |   **0.619** |
+| Credit Score ↔ Annual Income    |   **0.576** |
+
+The strongest relationship observed was between:
+
+```text
+Credit Score ↔ Credit Limit
+```
+
+with a correlation of approximately:
+
+```text
+0.85
+```
+
+This indicates a strong positive association in this dataset.
+
+> Correlation shows association, not causation.
+
+---
+
 # 🎯 Target Segment Identification
 
-The analysis identified the:
+After analyzing age groups, income, credit characteristics, payment behavior, and purchasing categories, the:
 
 # **18–25 age group**
 
-as a potential untapped customer segment.
+was selected as a **potential untapped target segment** for further experimentation.
 
-The segment represented approximately:
+This group represented approximately:
 
-**24.6% of the customer base**
+```text
+24.6% of the customer base
+```
 
-### Key characteristics
+### Segment Comparison
 
-| Metric               |   18–25 |    26–48 |    49–65 |
-| -------------------- | ------: | -------: | -------: |
-| Average Income       | ₹37,091 | ₹145,870 | ₹260,166 |
-| Average Credit Limit |  ₹1,130 |  ₹20,561 |  ₹41,699 |
-| Average Credit Score |  484.45 |   597.57 |   701.52 |
+| Metric                |   18–25 |    26–48 |    49–65 |
+| --------------------- | ------: | -------: | -------: |
+| Average Annual Income | ₹37,091 | ₹145,870 | ₹260,166 |
+| Average Credit Limit  |  ₹1,130 |  ₹20,561 |  ₹41,699 |
+| Average Credit Score  |  484.45 |   597.57 |   701.52 |
 
-The younger segment also showed relatively low credit-card usage compared with the older groups.
+### Why 18–25?
 
-At the same time, their transaction activity showed interest in categories such as:
+The analysis showed that this group:
 
-* Electronics
-* Fashion & Apparel
-* Beauty & Personal Care
+* Represents a meaningful portion of the customer base.
+* Has a relatively low average income.
+* Has lower average credit limits.
+* Has lower average credit scores.
+* Has relatively lower exposure to credit-card payments.
+* Shows purchasing activity in categories such as:
 
-This combination made the 18–25 segment a potential target for further experimentation.
+  * Electronics
+  * Fashion & Apparel
+  * Beauty & Personal Care
+
+This combination suggested that the segment could be worth testing rather than assuming it would automatically be the best market.
 
 ---
 
 # 🧪 Phase 2 — A/B Testing
 
-After identifying the target segment, the second phase focused on evaluating the campaign.
+After identifying the potential target segment, the next step was to evaluate campaign performance.
 
 The experiment compared:
 
@@ -253,15 +473,21 @@ Control Group
 Test Group
 ```
 
-The objective was to determine whether the test group achieved a higher average transaction value.
+The metric analyzed was:
+
+> **Average transaction value**
+
+The question was:
+
+> **Did the test group have a significantly higher average transaction value than the control group?**
 
 ---
 
-# 📐 Sample Size Planning
+# 📐 Sample Size & Statistical Power
 
-Before conducting the experiment, sample-size requirements were examined using statistical power analysis.
+Before analyzing the campaign results, sample-size planning was explored.
 
-The main parameters considered were:
+The parameters used were:
 
 ```text
 Significance level (α) = 0.05
@@ -269,55 +495,73 @@ Statistical power      = 0.80
 Effect size            = 0.20
 ```
 
-For an effect size of **0.20**, the calculated requirement was approximately:
+For an expected effect size of `0.20`, the calculated sample requirement was approximately:
 
-**393 observations per group**
+```text
+393 observations per group
+```
 
-Different effect sizes were also evaluated to understand the trade-off between the expected effect and required sample size.
+Different effect sizes were also tested:
 
-| Effect Size | Approx. Required Sample |
-| ----------: | ----------------------: |
-|         0.1 |                   1,570 |
-|         0.2 |                     393 |
-|         0.3 |                     175 |
-|         0.4 |                      99 |
-|         0.5 |                      63 |
-|         1.0 |                      16 |
+| Effect Size | Approx. Sample per Group |
+| ----------: | -----------------------: |
+|         0.1 |                    1,570 |
+|         0.2 |                      393 |
+|         0.3 |                      175 |
+|         0.4 |                       99 |
+|         0.5 |                       63 |
+|         1.0 |                       16 |
 
-This helped demonstrate an important experimental-design concept:
+### Main takeaway
 
-> **Smaller expected effects generally require larger samples to detect reliably.**
+A smaller expected effect generally requires a larger sample size to detect reliably.
 
 ---
 
-# 📊 Post-Campaign Analysis
+# 📊 Campaign Results
 
-The post-campaign data contained **62 campaign-date observations** with average transaction values for the control and test groups.
+The post-campaign dataset contained:
+
+```text
+62 campaign-date observations
+```
+
+Each observation contained the average transaction value for the control and test groups.
 
 ### Control Group
 
-* Mean transaction value: **221.18**
-* Standard deviation: **21.36**
+```text
+Mean = ₹221.18
+SD   = ₹21.36
+```
 
 ### Test Group
 
-* Mean transaction value: **235.98**
-* Standard deviation: **36.66**
-
-The test group therefore had a higher average transaction value:
-
 ```text
-235.98 − 221.18
-= 14.80
+Mean = ₹235.98
+SD   = ₹36.66
 ```
 
-This represents approximately a **6.69% increase relative to the control-group mean**.
+Difference:
+
+```text
+₹235.98 − ₹221.18
+= ₹14.80
+```
+
+Relative increase:
+
+```text
+≈ 6.69%
+```
+
+So, the test group had a higher average transaction value than the control group.
 
 ---
 
 # 📐 Hypothesis Testing
 
-A **right-tailed two-sample Z-test** was used to determine whether the test group's average transaction value was significantly higher than the control group's.
+A right-tailed two-sample Z-test was used.
 
 ### Null Hypothesis — H₀
 
@@ -327,17 +571,29 @@ There is no increase in average transaction value for the test group.
 
 The test group's average transaction value is higher than the control group's.
 
+In simple terms:
+
+```text
+H₀: Test ≤ Control
+
+H₁: Test > Control
+```
+
 ---
 
-# 📊 Statistical Result
+# 📊 Statistical Results
 
-The calculated test statistic was approximately:
+The calculated Z-statistic was:
 
-**Z = 2.7466**
+```text
+Z = 2.7466
+```
 
-The critical value at a 5% significance level for the right-tailed test was approximately:
+At a 5% significance level, the right-tailed critical value was:
 
-**1.6449**
+```text
+Zcritical = 1.6449
+```
 
 Since:
 
@@ -347,9 +603,11 @@ Since:
 
 the null hypothesis was rejected.
 
-The calculated p-value was approximately:
+### P-value
 
-**0.00301**
+```text
+p-value = 0.00301
+```
 
 Since:
 
@@ -357,32 +615,41 @@ Since:
 0.00301 < 0.05
 ```
 
-the result was statistically significant at the 5% level.
+the result was statistically significant at the 5% significance level.
 
-The result was also independently verified using `Statsmodels`, producing approximately:
+The result was also verified using Statsmodels:
 
 ```text
 Z = 2.7483
-p = 0.002995
+p-value = 0.002995
 ```
+
+The small difference between the manually calculated and Statsmodels values comes from using rounded summary statistics in the manual calculation.
 
 ---
 
 # 💡 Business Interpretation
 
-The statistical analysis provides evidence that the test group had a significantly higher average transaction value than the control group.
+The analysis provides statistical evidence that:
 
-In simple terms:
+> **The test group had a higher average transaction value than the control group.**
 
-> **The campaign showed evidence of increasing average transaction value within the tested segment.**
+In practical terms, the campaign showed evidence of improving transaction value within the tested segment.
 
-However, statistical significance should not automatically be interpreted as proof that the campaign will produce the same result for every customer or future campaign.
+However, this result should **not** be interpreted as:
+
+* guaranteed credit-card adoption,
+* guaranteed profitability,
+* guaranteed future campaign success, or
+* proof that the campaign will work for every customer segment.
+
+The project measured **transaction value**, not direct card activation or long-term customer profitability.
 
 ---
 
-# 🧠 Statistical Concepts Used
+# 🧠 Statistical Concepts Applied
 
-This project provided hands-on implementation of:
+This project provided practical exposure to:
 
 ### Data Analysis
 
@@ -391,8 +658,9 @@ This project provided hands-on implementation of:
 * Outlier detection
 * Exploratory Data Analysis
 * Customer segmentation
+* Correlation analysis
 
-### Statistical Analysis
+### Statistics
 
 * A/B Testing
 * Hypothesis Testing
@@ -411,30 +679,15 @@ This project provided hands-on implementation of:
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Technology Stack
 
-### Programming
-
-* Python
-
-### Data Analysis
-
-* Pandas
-* NumPy
-
-### Visualization
-
-* Matplotlib
-* Seaborn
-
-### Statistics
-
-* SciPy
-* Statsmodels
-
-### Environment
-
-* Jupyter Notebook
+| Category      | Technologies        |
+| ------------- | ------------------- |
+| Programming   | Python              |
+| Data Analysis | Pandas, NumPy       |
+| Visualization | Matplotlib, Seaborn |
+| Statistics    | SciPy, Statsmodels  |
+| Environment   | Jupyter Notebook    |
 
 ---
 
@@ -459,94 +712,217 @@ Atliqo-Bank-Project/
 
 ---
 
-# 🔄 Complete Workflow
+# 🔄 End-to-End Project Workflow
 
 ```text
-Customer Data
-Credit Score Data
-Transaction Data
-        ↓
-Data Cleaning
-        ↓
-Missing Value Treatment
-        ↓
-Outlier Detection
-        ↓
-Exploratory Data Analysis
-        ↓
-Customer Segmentation
-        ↓
-18–25 Target Segment
-        ↓
-Experiment Design
-        ↓
-Sample Size & Power Analysis
-        ↓
-Control vs Test
-        ↓
-Average Transaction Comparison
-        ↓
-Two-Sample Z-Test
-        ↓
-p-value = 0.00301
-        ↓
-Reject H₀
-        ↓
-Evidence of Higher Transaction Value
+                 BUSINESS QUESTION
+                        │
+                        ▼
+          ┌──────────────────────────┐
+          │ Customer + Credit +      │
+          │ Transaction Data         │
+          └────────────┬─────────────┘
+                       │
+                       ▼
+              DATA CLEANING
+                       │
+             ┌─────────┼─────────┐
+             ▼         ▼         ▼
+         Missing    Duplicates  Invalid
+         Values      Records     Values
+             │         │         │
+             └─────────┼─────────┘
+                       ▼
+                  EDA & ANALYSIS
+                       │
+                       ▼
+              CUSTOMER SEGMENTATION
+                       │
+                       ▼
+                  18–25 SEGMENT
+                       │
+                       ▼
+               EXPERIMENT DESIGN
+                       │
+                       ▼
+             SAMPLE SIZE / POWER
+                       │
+                       ▼
+              CONTROL vs TEST
+                       │
+                       ▼
+          AVERAGE TRANSACTION VALUE
+                       │
+                       ▼
+               Z-TEST / P-VALUE
+                       │
+                       ▼
+              STATISTICAL DECISION
+                       │
+                       ▼
+             BUSINESS INTERPRETATION
 ```
 
 ---
 
 # 🎓 Key Learnings
 
-The main learning from this project was that **data analysis and statistics can directly support business decisions**.
+The biggest learning from this project was that **data analysis is not just about making charts**.
 
-Instead of stopping at visualization, the project followed the complete path:
+The project connected:
 
 ```text
-Business Question
+Business Problem
        ↓
 Data
        ↓
 Cleaning
        ↓
-Analysis
+EDA
        ↓
-Target Identification
+Customer Segmentation
        ↓
-Experiment
+Experiment Design
        ↓
 Statistical Testing
        ↓
 Business Decision
 ```
 
-The project also demonstrated why proper data cleaning, experiment design, and statistical interpretation are important before making conclusions from customer data.
+It helped demonstrate how statistical concepts such as **hypothesis testing, p-values, effect size, statistical power, and A/B testing** can be applied to a practical business problem.
 
 ---
 
-# 🔮 Future Improvements
+# ⚠️ Limitations & Areas for Improvement
 
-Possible extensions include:
+There are several ways this analysis could be improved in a real-world setting.
 
-* Use larger real-world campaign datasets
-* Track actual card adoption/activation
-* Perform longer-term A/B testing
-* Analyze customer lifetime value
-* Build predictive models for card adoption
-* Create a Power BI or Streamlit dashboard
-* Test additional customer segments
-* Incorporate campaign cost and ROI into the final decision
+### 1. Direct Card Adoption
+
+The current experiment measures transaction value rather than actual:
+
+```text
+Card Application
+Card Activation
+Card Usage
+```
+
+A future experiment should directly track these outcomes.
+
+### 2. Larger Experiment
+
+The sample-size analysis suggested approximately **393 observations per group** for an effect size of 0.20, while the available post-campaign data contained 62 date-level observations.
+
+A larger experiment would provide stronger evidence.
+
+### 3. Daily Aggregated Data
+
+The Phase 2 dataset contains daily average values rather than individual customer-level observations.
+
+A future analysis could work with customer-level experimental data and account for the time-based nature of the observations.
+
+### 4. Campaign ROI
+
+Statistical significance does not tell us whether the campaign was profitable.
+
+Future analysis should include:
+
+```text
+Campaign Cost
+       +
+Revenue / Transaction Value
+       +
+Customer Acquisition Cost
+       ↓
+ROI
+```
+
+### 5. Predictive Modeling
+
+A future version could build an ML model to predict:
+
+```text
+Probability of Credit Card Adoption
+```
+
+using customer demographics, income, credit profile, and transaction behavior.
+
+### 6. Interactive Dashboard
+
+The analysis could be converted into:
+
+* Power BI dashboard
+* Streamlit application
+
+to allow business users to explore customer segments interactively.
+
+---
+
+# 🚀 Future Scope
+
+Possible future improvements include:
+
+* Track actual credit-card applications and activations.
+* Run a larger and longer A/B test.
+* Analyze customer-level campaign data.
+* Predict credit-card adoption probability.
+* Estimate customer lifetime value.
+* Analyze campaign ROI.
+* Test multiple customer segments.
+* Build an interactive Power BI/Streamlit dashboard.
+* Automate statistical reporting.
+
+---
+
+# 📌 Final Outcome
+
+### Target Segment
+
+**18–25 age group**
+
+identified as a potential untapped segment based on customer characteristics, credit profile, payment behavior, and purchasing patterns.
+
+### Campaign Result
+
+The test group showed:
+
+```text
+Average Transaction Value
+₹235.98 vs ₹221.18
+```
+
+with an approximate:
+
+```text
+6.69% increase
+```
+
+### Statistical Result
+
+```text
+Z-statistic = 2.7466
+p-value     = 0.00301
+α           = 0.05
+```
+
+Therefore:
+
+```text
+Reject H₀
+```
+
+and conclude that the test group showed **statistically significant evidence of a higher average transaction value**.
 
 ---
 
 # 👩‍💻 Author
 
-## Aashi Tomar
+### Aashi Tomar
 
-B.Tech Computer Science (AI & ML)
+B.Tech Computer Science Engineering
+Artificial Intelligence & Machine Learning
 
-Interested in:
+**Interests:**
 
 * Machine Learning
 * Data Science
@@ -556,4 +932,6 @@ Interested in:
 
 ---
 
-⭐ If you found this project useful, consider giving the repository a star!
+## ⭐ Key Takeaway
+
+> **The project demonstrates how customer data, statistical analysis, segmentation, and experimentation can be combined to support a data-driven business decision.**
